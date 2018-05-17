@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Home</title>
+    <title>Blog</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -20,15 +20,6 @@
 <body>
 
     <header>
-        
-                            <li>
-                                <a href="#" class="text-white">Email me</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Kelechi Igbokwe</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -37,54 +28,39 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                        <span class="sr-only">(current)</span>
+                    <span class="sr-only">(current)</span>
                     </a>
                     <a class="nav-item nav-link" href="#">Twitter</a>
                     <a class="nav-item nav-link" href="#">Resume</a>
-                    <a class="nav-item nav-link" href="#">Blog</a>
+                    <a class="nav-item nav-link active" href="#">Blog</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <main role="main">
-
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Hi, I'm Kelechi Igbokwe</h1>
-                <p class="lead text-muted">Hey there, my name is Kelechi Igbokwe. I am a Mobile/Web developer skilled in iOS, Django, Python and JavaScript. In recent times, I've found myself delving into Data Science. I picked great interest in applying Machine Learning and Deep Learning to solve real life problems.</p>
-                <p>
-                    <a href="mailto:kelechi_igbokwe@yahoo.com" class="btn btn-primary my-2">E-Mail Me</a>
-                </p>
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-               
-                <div class="row">
-
-                     {% for job in job_list.all %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" src="{{ job.image.url }}" />
-                            <div class="card-body">
-                                <p class="card-text">{{ job.summary }}</p>
-                            </div>
-                        </div>
-                    </div>
-                     {% endfor %}
-
-                
-                </div>
-            </div>
+        <div class="container">
+            <h1 class="text-center pt-3">Welcome to Kells Blog</h1>
+            <br />
+            <br />
+            <h2>Latest Posts</h2>
+            <hr /> 
+            {% for blog in blog_list.all %}
+            <a href=""><h3>{{ blog.title }}</h3> </a>
+            {{ blog.date_format }}
+            <br />
+            <img class="img-fluid" src="{{ blog.image.url }}" height="200" width="200"/>
+            <br />
+            <p>{{ blog.summary }}</p>
+            
+            {% endfor %}
         </div>
+
 
     </main>
 
     <footer class="text-muted">
-        <div class="container text">
+        <div class="container text-center">
             <p>© Kelechi Igbokwe {% now "Y" %}</p>
         </div>
     </footer>
@@ -103,4 +79,3 @@
 </body>
 
 </html>
-
