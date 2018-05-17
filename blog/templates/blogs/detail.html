@@ -1,21 +1,21 @@
+
 <!doctype html>
 <html lang="en">
-     {% load staticfiles %}
 
 <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    
 
-    <title>Kells Blog</title>
+
+    <title>{{ detailblog.title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -29,12 +29,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <span class="sr-only">(current)</span>
-                    </a>
                     <a class="nav-item nav-link" href="http://twitter.com/ka2la2chaha3">Twitter</a>
                     <a class="nav-item nav-link" href="https://github.com/sirkells">Github</a>
                     <a class="nav-item nav-link" href="{% static 'Kelechi1.pdf' %}">Resume</a>
-                    <a class="nav-item nav-link active" href="#">Blog</a>
+                    <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
                 </div>
             </div>
         </nav>
@@ -42,22 +40,16 @@
 
     <main role="main">
         <div class="container">
-            <h1 class="text-center pt-3">Welcome to Kells Blog</h1>
-            <br />
-            <br />
-            <h2>Latest Posts</h2>
-            <hr /> 
-            {% for blog in blog_list.all %}
-            <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3> </a>
-            {{ blog.date_format }}
-            <br />
-            <img class="img-fluid" src="{{ blog.image.url }}" height="200" width="200"/>
-            <br />
-            <p>{{ blog.summary }}</p>
-            
-            {% endfor %}
-        </div>
 
+
+            <h1 class="text-center pt-3">{{ detailblog.title }}</h1>
+            <p class="text-center">{{ detailblog.date_format }}</p>
+            <img class="rounded mx-auto d-block" src="{{ detailblog.image.url }}" />
+            <br />
+            <p>{{ detailblog.body_text }}</p>
+
+
+        </div>
 
     </main>
 
@@ -68,10 +60,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
+  ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
