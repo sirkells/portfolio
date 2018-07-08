@@ -23,11 +23,12 @@
 # (among others).
 
 #portfolio/p/* linguist-vendored
+blog/templates/blogs/* linguist-vendored
 #blog/templates/reset/* linguist-vendored
 #blog/templates/base.html* linguist-vendored
 #blog/templates/about.html* linguist-vendored
 #blog/templates/* linguist-vendored
-/portfolio/portfolio/.py* linguist-vendored=false
+#/portfolio/portfolio/.py* linguist-vendored=false
 # Documents
 *.doc	 diff=astextplain
 *.DOC	 diff=astextplain
