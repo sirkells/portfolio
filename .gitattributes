@@ -27,7 +27,7 @@
 #blog/templates/base.html* linguist-vendored
 #blog/templates/about.html* linguist-vendored
 #blog/templates/* linguist-vendored
-.py linguist-vendored=false
+*.py linguist-vendored=false
 # Documents
 *.doc	 diff=astextplain
 *.DOC	 diff=astextplain
