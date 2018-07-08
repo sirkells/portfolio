@@ -22,7 +22,7 @@
 # ``shelve``, ``marshal``, ``anydbm``, & ``bsddb``
 # (among others).
 
-#productHunt/static/* linguist-vendored
+#portfolio/p/* linguist-vendored
 #blog/templates/reset/* linguist-vendored
 #blog/templates/base.html* linguist-vendored
 #blog/templates/about.html* linguist-vendored
